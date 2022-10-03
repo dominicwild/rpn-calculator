@@ -13,7 +13,7 @@ pub enum CalculatorInput {
 }
 
 impl CalculatorInput {
-    fn opt(self, num1: i32, num2: i32) -> i32 {
+    fn apply(self, num1: i32, num2: i32) -> i32 {
         match self {
             Add => num1 + num2,
             Subtract => num1 - num2,
@@ -38,7 +38,7 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
                 let right_num = stack.pop().unwrap();
                 let left_num = stack.pop().unwrap();
 
-                let result = operation.opt(left_num, right_num);
+                let result = operation.apply(left_num, right_num);
                 stack.push(result);
             }
         };
