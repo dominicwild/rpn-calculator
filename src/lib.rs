@@ -38,7 +38,8 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
                 let right_num = stack.pop().unwrap();
                 let left_num = stack.pop().unwrap();
 
-                stack.push(operation.opt(left_num, right_num));
+                let result = operation.opt(left_num, right_num);
+                stack.push(result);
             }
         };
     }
